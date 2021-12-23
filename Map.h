@@ -1,9 +1,11 @@
 #ifndef Map_H
 #define Map_H
 #include <bits/stdc++.h>
-#include "Station.h"
-#include "Car.h"
-class Map
+class Car;
+class Station;
+using namespace std;
+
+class Map 
 {
 public:
     Map(double w, double l);
@@ -11,10 +13,13 @@ public:
     void addStation(Station);
     void check();
     void render();
+    void run();
+    pair<double,double> getSize();
 
 private:
     double width, length;
-    multiset<Car> cars;
-    multiset<Station> stations;
+    vector<Car> cars;
+    vector<Station> stations;
+    vector<int> changeTime;
 };
 #endif
